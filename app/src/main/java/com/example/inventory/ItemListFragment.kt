@@ -23,14 +23,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.inventory.databinding.ItemListFragmentBinding
+import com.example.inventory.databinding.FragmentItemListBinding
 
 /**
  * Main fragment displaying details for all items in the database.
  */
 class ItemListFragment : Fragment() {
 
-    private var _binding: ItemListFragmentBinding? = null
+    private var _binding: FragmentItemListBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,13 +38,14 @@ class ItemListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = ItemListFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentItemListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
+        // listener de clique definido no FAB p/ navegar até FragmentToAddItemFragment
         binding.floatingActionButton.setOnClickListener {
             val action = ItemListFragmentDirections.actionItemListFragmentToAddItemFragment(
                 getString(R.string.add_fragment_title)

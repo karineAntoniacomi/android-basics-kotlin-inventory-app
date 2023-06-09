@@ -52,7 +52,7 @@ class AddItemFragment : Fragment() {
      */
     override fun onDestroyView() {
         super.onDestroyView()
-        // Hide keyboard.
+        // Oculta o teclado antes de destruir o fragmento
         val inputMethodManager = requireActivity().getSystemService(INPUT_METHOD_SERVICE) as
                 InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
