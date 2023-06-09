@@ -17,9 +17,9 @@ data class Item(
     // Anotação ColumnInfo permite personalizar a
     // coluna associada ao campo específico.
     @ColumnInfo(name = "name")
-    val itemName: String,
+    val nomeItem: String,
     @ColumnInfo(name = "price")
-    val itemPrice: Double,
+    val precoItem: Double,
     @ColumnInfo(name = "quantity")
-    val quantityInStock: Int
+    val quantidadeEmEstoque: Int
 )
