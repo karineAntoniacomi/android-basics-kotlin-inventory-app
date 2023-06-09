@@ -1,9 +1,8 @@
 package com.example.inventory.data
 
-import android.os.Build.VERSION_CODES.S
 import androidx.room.*
-
 import kotlinx.coroutines.flow.Flow
+
 @Dao
 interface ItemDao {
     // A estratégia OnConflictStrategy.IGNORE
