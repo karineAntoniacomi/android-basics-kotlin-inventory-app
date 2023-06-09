@@ -27,12 +27,13 @@ interface ItemDao {
     // o Flow ou o LiveData como tipo de retorno
     // garante que uma notificação seja enviada
     // quando os dados no banco de dados mudarem.
-    fun recuperarItemPorID(id: Item): Flow<Item>
+    fun recuperarItemPorID(id: Int): Flow<Item>
     // Room executa a consulta na linha de execução em
     // segundo plano, por isso não precisa ser suspend.
 
     // Consulta SQLite que retorna todas as colunas
-    // da tabela item, em ordem crescente
+    // da tabela item, em ordem crescente.
     @Query("SELECT * from item ORDER BY name ASC")
-    fun recuperarItens(): Flow<Item>
+    // Retorna lista de entidades Item como um Flow.
+    fun recuperarItens(): Flow<List<Item>>
 }

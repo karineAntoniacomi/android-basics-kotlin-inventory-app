@@ -16,5 +16,12 @@
 package com.example.inventory
 
 import android.app.Application
+import com.example.inventory.data.ItemRoomDatabase
 
-class InventoryApplication : Application()
+class InventoryApplication : Application(){
+    // Chama getDatabase() na classe ItemRoomDatabase transmitindo o contexto para
+    // instanciar database. Delegado lazy  para que a instância de database seja
+    // criada lentamente se for precisar da referência ou acessá-la, e não ao iniciar
+    // o app, isso cria um banco de dados físico no disco no primeiro acesso.
+    val database: ItemRoomDatabase by lazy { ItemRoomDatabase.getDatabase(this) }
+}
